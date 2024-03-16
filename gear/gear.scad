@@ -37,7 +37,7 @@ module przekladnia(modul = 2,
                     grubosc_krzyza = 5)
 {
 
-wysokosc_slupkow = wysokosc_podstawki + 2*wysokosc_kola;
+wysokosc_slupkow = wysokosc_podstawki + 1.5*wysokosc_kola;
 
 liczba_zebow_2 = liczba_zebow_1 * przekladnia;
 
@@ -57,35 +57,37 @@ echo("Srednica slupa1",srednica_slupka1)
 echo("Srednica slupa2",srednica_slupka2)
 
 //kolo 2
-// translate([0, 0, wysokosc_podstawki+1])rotate(4.5)
-translate([0, 5, 0])
+// translate([0, 0, wysokosc_podstawki])rotate(4.5)
+translate([0, 0, 0])
 stirnrad(modul=modul, zahnzahl=liczba_zebow_2, breite=wysokosc_kola, bohrung=srednica_otworu2, $fn=100);
 
 //kolo 1
-// translate([odleglosc_srodkow, 0, wysokosc_podstawki+1])
-translate([7, -25, 0])
+// translate([odleglosc_srodkow, 0, wysokosc_podstawki])
+translate([7, -22, 0])
 stirnrad(modul=modul, zahnzahl=liczba_zebow_1, breite=wysokosc_kola, bohrung=srednica_otworu1, $fn=100);
 
-// translate([0, 0, 0])
-translate([-30, -40, 0])
-{
-// slupek1
-translate([odleglosc_srodkow, 0, 0]) cylinder(h=wysokosc_slupkow, r=srednica_slupka1/2, $fn=100);
+// translate([-0, 0, 0])
+translate([-30, -25, 0])
+    {
+    // slupek1
+    translate([odleglosc_srodkow, 0, 0]) cylinder(h=wysokosc_slupkow, r=srednica_slupka1/2, $fn=100);
 
-// slupek2
-translate([0, 0, 0]) cylinder(h=wysokosc_slupkow, r=srednica_slupka2/2, $fn=100);
+    // slupek2
+    translate([0, 0, 0]) cylinder(h=wysokosc_slupkow, r=srednica_slupka2/2, $fn=100);
 
-base(promien_podstawki*2, wysokosc_podstawki, grubosc_krzyza);
-}
+    translate([odleglosc_srodkow/2, 0, 0])
+    base(odleglosc_srodkow+srednica_slupka1, wysokosc_podstawki, grubosc_krzyza);
+    }
+
 }
 
 
 przekladnia(modul = 1,
-            liczba_zebow_1 = 10,
+            liczba_zebow_1 = 8,
             przekladnia = 4,
-            wysokosc_kola = 3,
+            wysokosc_kola = 2,
             luz_slupka = 1,
-            stosunek_otworu_srednicy_kola1 = 0.4,
+            stosunek_otworu_srednicy_kola1 = 0.5,
             stosunek_otworu_srednicy_kola2 = 0.2,
-            wysokosc_podstawki = 4,
-            grubosc_krzyza = 4);
+            wysokosc_podstawki = 3,
+            grubosc_krzyza = 2);
