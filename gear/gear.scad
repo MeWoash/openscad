@@ -57,17 +57,17 @@ echo("Srednica slupa1",srednica_slupka1)
 echo("Srednica slupa2",srednica_slupka2)
 
 //kolo 2
-// translate([0, 0, wysokosc_podstawki])rotate(4.5)
-translate([0, 0, 0])
+translate([0, 0, wysokosc_podstawki])rotate(4.5)
+// translate([0, 0, 0])
 stirnrad(modul=modul, zahnzahl=liczba_zebow_2, breite=wysokosc_kola, bohrung=srednica_otworu2, $fn=100);
 
 //kolo 1
-// translate([odleglosc_srodkow, 0, wysokosc_podstawki])
-translate([7, -22, 0])
+translate([odleglosc_srodkow, 0, wysokosc_podstawki])
+// translate([7, -22, 0])
 stirnrad(modul=modul, zahnzahl=liczba_zebow_1, breite=wysokosc_kola, bohrung=srednica_otworu1, $fn=100);
 
-// translate([-0, 0, 0])
-translate([-30, -25, 0])
+translate([-0, 0, 0])
+// translate([-30, -25, 0])
     {
     // slupek1
     translate([odleglosc_srodkow, 0, 0]) cylinder(h=wysokosc_slupkow, r=srednica_slupka1/2, $fn=100);
